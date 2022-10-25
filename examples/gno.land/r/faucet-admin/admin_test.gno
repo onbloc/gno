@@ -11,12 +11,12 @@ import (
 
 func TestPackage(t *testing.T) {
 	var (
-		adminAddr			 		= std.Address("g1qsme7hy3whlhwjf2lfq93szez7jveqzj5gwexj")
-		controllerAddr 		= std.Address("g1tzgxd2e59hywmqtg0pd3nljff39j36sxu2flpg")
-		newAdminAddr 			= testutils.TestAddress("new admin addr") // gen addr
-		newControllerAddr = testutils.TestAddress("new controller addr") // gen addr
-		_tmp1 						= testutils.TestAddress("tmp 1") // gen addr
-		_tmp2 						= testutils.TestAddress("tmp 2") // gen addr
+		adminAddr = std.Address("g1qsme7hy3whlhwjf2lfq93szez7jveqzj5gwexj") 
+		controllerAddr = std.Address("g1tzgxd2e59hywmqtg0pd3nljff39j36sxu2flpg")
+		newAdminAddr = testutils.TestAddress("new admin addr")
+		newControllerAddr = testutils.TestAddress("new controller addr")
+		_tmp1 = testutils.TestAddress("tmp 1")
+		_tmp2 = testutils.TestAddress("tmp 2")
 	)
 
 	// test for getter in /r/faucet-admin

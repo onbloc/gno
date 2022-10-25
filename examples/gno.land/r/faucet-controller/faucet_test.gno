@@ -12,15 +12,15 @@ import (
 
 func TestPackage(t *testing.T) {
 	var (
-		faucetAdminAddr 			= FA.GetAdminAddress()
+		faucetAdminAddr = FA.GetAdminAddress()
 		faucetControllerAddr 	= FA.GetControllerAddress()
-		faucetPause					 	= FA.GetInPause()
-		faucetMsg 						= FA.GetMessage()
-		_tmpAdminAddr					= testutils.TestAddress("just tmp admin")
-		_tmpControllerAddr 		= testutils.TestAddress("just tmp controller")
-		_tmpUserAddr1 				= testutils.TestAddress("just tmp user 01")
-		_tmpUserAddr2 				= testutils.TestAddress("just tmp user 02")
-		_tmpUserAddr3 				= testutils.TestAddress("just tmp user 03")
+		faucetPause	= FA.GetInPause()
+		faucetMsg = FA.GetMessage()
+		_tmpAdminAddr	= testutils.TestAddress("just tmp admin")
+		_tmpControllerAddr = testutils.TestAddress("just tmp controller")
+		_tmpUserAddr1 = testutils.TestAddress("just tmp user 01")
+		_tmpUserAddr2 = testutils.TestAddress("just tmp user 02")
+		_tmpUserAddr3 = testutils.TestAddress("just tmp user 03")
 
 		// faucetAddr = std.TestDerivePkgAddr("gno.land/r/faucet-controller")		
 	)
