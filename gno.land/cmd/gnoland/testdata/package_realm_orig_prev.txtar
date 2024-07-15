@@ -1,0 +1,51 @@
+loadpkg gno.land/p/pkg $WORK/p/pkg
+loadpkg gno.land/r/realm $WORK/r/realm
+
+## start a new node
+gnoland start
+
+
+
+gnokey maketx call -pkgpath gno.land/r/realm -func Debug -gas-fee 100000ugnot -gas-wanted 2000000 -broadcast -chainid tendermint_test test1
+# r/rlm
+# R_ORIG: g1jg8mtutu9khhfwc4nxmuhcpftf0pajdhfvsqf5
+# R_PREV: (struct{("g1jg8mtutu9khhfwc4nxmuhcpftf0pajdhfvsqf5" std.Address),("" string)} std.Realm)
+# CALLING R > P
+# p/pkg
+# ORIG: g1jg8mtutu9khhfwc4nxmuhcpftf0pajdhfvsqf5
+# PREV: (struct{("g1jg8mtutu9khhfwc4nxmuhcpftf0pajdhfvsqf5" std.Address),("" string)} std.Realm) // <- shouldn' it be r/realm ??, if not what's diff between origCaller and prevRealm for package ??
+
+
+-- p/pkg/pkg.gno --
+package pkg
+
+import "std"
+
+func Debug() string {
+	println("p/pkg")
+	println("ORIG:", std.GetOrigCaller())
+	println("PREV:", std.PrevRealm())
+
+	return "debug_p"
+}
+
+
+
+-- r/realm/realm.gno --
+package realm
+
+import "gno.land/p/pkg"
+import "std"
+
+
+func Debug() string {
+	println("r/rlm")
+	println("R_ORIG:", std.GetOrigCaller())
+	println("R_PREV:", std.PrevRealm())
+	println()
+
+	println("CALLING R > P")
+	pkg.Debug()
+
+	return "debug_r"
+}
